@@ -1,0 +1,84 @@
+
+  <div class="card" style="background-color: #ffffff;">
+    
+    <div class="card-body" *ngIf="!choosededValues.name">
+      <div class="center-align text">Filters</div>
+      <div class="dropdown center-align mt-2">
+          <button class="btn btn-secondary dropdown-toggle button-style" type="button" id="Movie" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getAllDetails('films')">
+            Movie Name
+          </button>
+          <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="Movie" >
+            <a class="dropdown-item" href="#" *ngFor="let movie of peopleDetails?.results" (click)="selectValue(movie,'movie')">
+              {{ movie.title }}
+            </a>
+          </div>
+      </div>
+  
+      <div class="dropdown center-align mt-2">
+          <button class="btn btn-secondary dropdown-toggle button-style" type="button" id="Species" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getAllDetails('species')">
+            Species
+          </button>
+          <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="Species">
+            <a class="dropdown-item" href="#" *ngFor="let species of peopleDetails?.results" (click)="selectValue(species,'species')">
+              {{ species.name }}
+            </a>
+          </div>
+      </div>
+  
+      <div class="dropdown center-align mt-2">
+          <button class="btn btn-secondary dropdown-toggle button-style" type="button" id="Vehicle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getAllDetails('vehicles')">
+            Vehicle
+          </button>
+          <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="Vehicle">
+            <a class="dropdown-item" href="#" *ngFor="let vehicle of peopleDetails?.results" (click)="selectValue(vehicle,'vehicle')">
+              {{ vehicle.name }}
+            </a>
+          </div>
+      </div>
+  
+      <div class="dropdown center-align mt-2">
+          <button class="btn btn-secondary dropdown-toggle button-style" type="button" id="Star" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getAllDetails('starships')">
+            Star Ships
+          </button>
+          <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="Star">
+            <a class="dropdown-item" href="#" *ngFor="let star of peopleDetails?.results" (click)="selectValue(star,'star')">
+              {{ star.name }}
+            </a>
+          </div>
+      </div>
+  
+      <div class="center-align" style="margin-top: 10px;" *ngIf="selectedValues">
+        <div class="center-align text">Selected Values</div>
+        <p >{{selectedValues.title || selectedValues.name}}</p>
+      </div>
+
+      <div class="center-align" style="margin-top: 10px;">
+          <button #searchButton type="button" class="btn btn-outline-success" [attr.data-bs-toggle]="'tooltip'" [attr.data-bs-placement]="'top'" [attr.title]="selectedValues" (click)="onSearch()">
+              Search
+          </button>
+      </div>
+  </div>
+
+   <div class="card-body" *ngIf="choosededValues.name">
+    <div class="mb-3">
+      <button type="button" class="btn btn-outline-success" [attr.data-bs-toggle]="'tooltip'" [attr.data-bs-placement]="'top'" [attr.title]="selectedValues" (click)="goBack()">
+        Back
+    </button>
+    </div>
+    <div class="center-align text">Character Details</div>
+    <p *ngIf="choosededValues.name" style="margin-top: 10px;"><strong>Name:</strong> {{ choosededValues.name }}</p>
+    <p *ngIf="choosededValues.height"><strong>Height:</strong> {{ choosededValues.height }}</p>
+    <p *ngIf="choosededValues.mass"><strong>Mass:</strong> {{ choosededValues.mass }}</p>
+    <p *ngIf="choosededValues.hair_color"><strong>Hair Color:</strong> {{ choosededValues.hair_color }}</p>
+    <p *ngIf="choosededValues.skin_color"><strong>Skin Color:</strong> {{ choosededValues.skin_color }}</p>
+    <p *ngIf="choosededValues.eye_color"><strong>Eye Color:</strong> {{ choosededValues.eye_color }}</p>
+    <p *ngIf="choosededValues.birth_year"><strong>Birth Year:</strong> {{ choosededValues.birth_year }}</p>
+    <p *ngIf="choosededValues.gender"><strong>Gender:</strong> {{ choosededValues.gender }}</p>
+   </div>
+  </div>
+
+  <ng-template #loadingTemplate>
+        <div class="spinner-border" role="status" style="color: #239b73;text-align: center;">
+          <span class="sr-only"></span>
+        </div>
+  </ng-template>

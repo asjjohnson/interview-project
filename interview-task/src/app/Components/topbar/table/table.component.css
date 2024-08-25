@@ -1,0 +1,113 @@
+th{
+    color: #7c7c7c;
+    border-width: 4px;
+    border-color: #ebf0f0;
+}
+td{
+    color: #868686;
+    background-color: #e6e6e6;;
+    border-width: 4px;
+    border-color: #ebf0f0;
+}
+
+
+/* .pagination {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination li {
+    margin-right: 5px;
+}
+
+.pagination a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    background-color: #6c757d;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+.pagination a:hover {
+    background-color: #5a6268;
+}
+
+.pagination .active a {
+    background-color: #239b73;
+}
+
+.pagination .arrow {
+    padding: 0 5px;
+}
+
+.pagination .arrow a {
+    background-color: #6c757d;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.pagination {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination li {
+    margin-right: 5px;
+}
+
+.pagination a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    background-color: #6c757d;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+.pagination a:hover {
+    background-color: #5a6268;
+}
+
+.pagination .active a {
+    background-color: #239b73;
+}
+
+.pagination .arrow {
+    padding: 0 5px;
+}
+
+.pagination .arrow a {
+    background-color: #6c757d;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.pagination .ellipsis a {
+    background-color: transparent;
+    color: #6c757d;
+    cursor: default;
+}
+
+tr:hover{
+    background-color: white;
+}

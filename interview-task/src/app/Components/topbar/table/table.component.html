@@ -1,0 +1,72 @@
+<div class="card" style="background-color: #ffffff">
+  <div class="card-body">
+    <div style="color: #35a37f;font-weight: 500;">SEARCH RESULTS</div>
+    <div style="color: #7c7c7c;font-size: x-small;">(By Default this table will have all data)</div>
+
+    <table class="table table-bordered" style="margin-top:10px;">
+      <thead>
+        <tr style="background-color: #f5f5f5;">
+          <th scope="col">SI No.</th>
+          <th scope="col">Character Name</th>
+          <th scope="col">Species</th>
+          <th scope="col">Birth Year</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <ng-container *ngIf="isloading; else loadingTemplate">
+          <tr *ngFor="let people of peopleDetails; let i = index" (click)="onclick(people)">
+            <td scope="row">{{ (currentPage - 1) * 10 + i + 1 }}</td>
+            <td>{{ people?.name }}</td>
+            <ng-container *ngIf="people?.species?.length; else noSpecies">
+              <td *ngFor="let species of people?.species">{{ species }}</td>
+            </ng-container>
+            <ng-template #noSpecies>
+              <td>---</td>
+            </ng-template>
+            <td>{{ people?.birth_year || '---' }}</td>
+          </tr>
+        </ng-container>
+        <ng-template #loadingTemplate>
+          <tr>
+            <td colspan="4" style="text-align: center; height: 100px;">
+              <div class="spinner-border" role="status" style="color: #239b73;">
+                <span class="sr-only"></span>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+      
+      
+    </table>
+    
+
+    <ul class="pagination" style="display: flex; justify-content: end;"  *ngIf="!isShow">
+      <li [class.disabled]="!peopleDetails.previous" (click)="previousPage()">
+        <a href="#">&#9664; </a>
+      </li>
+    
+    
+      <ng-container *ngFor="let page of []?.constructor(totalPages); let i = index" >
+        <li *ngIf="i < 3" 
+            [class.active]="currentPage === i + 1" 
+            (click)="goToPage(i + 1)">
+          <a href="#">{{ i + 1 }}</a>
+        </li>
+      </ng-container>
+    
+
+      <li *ngIf="totalPages > 3" class="ellipsis">
+        <a href="#">...</a>
+      </li>
+    
+      <li class="arrow" [class.disabled]="!peopleDetails.next" (click)="nextPage()">
+        <a href="#">&#9654;</a>
+      </li>
+    </ul>
+    
+    
+
+  </div>
+</div>
